@@ -83,8 +83,8 @@ namespace GestionCandidatosApi.Services
                 modelo.estado = modelo.estado != null ? modelo.estado : "A";
                 modelo.password = VariosService.EncryptPassword(modelo.password);
 
-                dbContext.Usuarios.Add(modelo);
-                dbContext.SaveChanges();
+                dbContext.Usuarios.AddAsync(modelo);
+                dbContext.SaveChangesAsync();
                 return "Exito";
             }
             catch (Exception e)

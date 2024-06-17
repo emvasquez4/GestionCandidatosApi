@@ -59,6 +59,30 @@ namespace CreditCard.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("InsertUsuario")]
+        public async Task<ActionResult<string>> InsertUsuario(Usuarios modelo)
+        {
+            try
+            {
+                var result = await usuarios.InsertUsuarios(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Usuario insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
+
 
     }
 }
