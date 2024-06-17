@@ -149,3 +149,4 @@ E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidato
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\MySqlConnector.dll
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.sourcelink.json

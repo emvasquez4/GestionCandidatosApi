@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pa13hwJloNMtu24JDxiOR5ijqMXbFeMt0vOqzvNBBR9EUDGqkg/TVWaZaak7Kv7hDqWHLOTvY+OqisHb0JcPXQ==",
+  "dgSpecHash": "S8Dtt4HAEQyrav7KeZ/G58HSaGl3IakCfBRq1a4nZhUUsFX9pAndMBN9IjYNEN+iMb7E+gVwVxdOtZxDgo05ng==",
   "success": true,
   "projectFilePath": "E:\\backup\\Proyectos\\SistemaGestionPersonal\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mauricio\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Mauricio\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
