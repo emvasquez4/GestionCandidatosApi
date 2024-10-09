@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestionCandidatosApi")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+022db67fa1a41b207fd69cd465f510a6a4d56f74")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5decd7d7df37b802a88b833749fed15be778004d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestionCandidatosApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestionCandidatosApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
