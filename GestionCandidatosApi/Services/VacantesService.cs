@@ -50,7 +50,7 @@ namespace GestionCandidatosApi.Services
         {
             try
             {
-                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.id == filtro.Id);
+                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.id == Convert.ToInt32(filtro.FiltroPrimario));
 
                 if (vacante == null)
                 {

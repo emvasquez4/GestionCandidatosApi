@@ -7,12 +7,12 @@ namespace GestionCandidatosApi.Controllers
 {
     public class CandidatosController : Controller
     {
-        public readonly ICandidatosService candidatos;
+        //public readonly ICandidatosService candidatos;
 
-        public CandidatosController(ICandidatosService _candidatos)
-        {
-            candidatos = _candidatos;
-        }
+        //public CandidatosController(ICandidatosService _candidatos)
+        //{
+        //    candidatos = _candidatos;
+        //}
 
     }
 }
