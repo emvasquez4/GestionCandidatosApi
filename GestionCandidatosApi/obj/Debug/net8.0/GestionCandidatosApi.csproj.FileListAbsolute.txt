@@ -150,6 +150,7 @@ E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidato
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\MySqlConnector.dll
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.sourcelink.json
+<<<<<<< HEAD
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\appsettings.json
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\GestionCandidatosApi.exe
@@ -303,3 +304,6 @@ C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\ne
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.pdb
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.genruntimeconfig.cache
 C:\Users\AP\Documents\dsi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\ref\GestionCandidatosApi.dll
+=======
+E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\BCrypt.Net-Next.dll
+>>>>>>> 23353cd8affb9956d1f951c672f539c5426d7d13
