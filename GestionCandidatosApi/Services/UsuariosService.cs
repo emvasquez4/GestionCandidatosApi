@@ -14,9 +14,11 @@ namespace GestionCandidatosApi.Services
     {
 
         private readonly Context dbContext;
+        private readonly EncryptionService _encryptionService;
 
-        public UsuariosService(Context _dbContext) { 
+        public UsuariosService(Context _dbContext, EncryptionService encryptionService) { 
             dbContext = _dbContext;
+            _encryptionService = encryptionService;
         }
 
         #region SELECT
@@ -55,9 +57,9 @@ namespace GestionCandidatosApi.Services
         {
             try
             {
-                var usuario = await dbContext.Usuarios.Where(m => m.username == filtro.FiltroPrimario && m.password == filtro.FiltroSecundario).FirstOrDefaultAsync();
+                var usuario = await dbContext.Usuarios.Where(m => m.username == filtro.FiltroPrimario && m.password == _encryptionService.Encrypt(filtro.FiltroSecundario)).FirstOrDefaultAsync();
 
-                if (VariosService.VerifyPassword(filtro.FiltroSecundario, usuario.password))
+                if (usuario != null)
                 {
                     return usuario;
                 }
@@ -81,7 +83,7 @@ namespace GestionCandidatosApi.Services
             {
                 modelo.username = modelo.username != null ? modelo.username.ToUpper() : "no data";
                 modelo.estado = modelo.estado != null ? modelo.estado : "A";
-                modelo.password = VariosService.EncryptPassword(modelo.password);
+                modelo.password =_encryptionService.Encrypt(modelo.password);
 
                 dbContext.Usuarios.AddAsync(modelo);
                 dbContext.SaveChangesAsync();
@@ -104,14 +106,15 @@ namespace GestionCandidatosApi.Services
                 var usuario = await dbContext.Usuarios.Where(m => m.id == modelo.id).FirstOrDefaultAsync();
                 if (usuario != null)
                 {
-                    if (VariosService.IsSamePassword(modelo.password, usuario.password))
+                    if (_encryptionService.Decrypt(modelo.password) == usuario.password)
                     {
-                        
+                        usuario.email = modelo.email;
+                        usuario.estado = modelo.estado;
                     }
                     else {
-                        usuario.email = modelo.email;
-                        usuario.password = modelo.password;
-                        usuario.estado = modelo.estado;
+                       
+                        usuario.password = _encryptionService.Encrypt(modelo.password);
+                       
                         dbContext.Usuarios.Add(usuario);
                         ejecuta = 0;
                     }

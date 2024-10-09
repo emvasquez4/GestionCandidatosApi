@@ -1,4 +1,5 @@
 using GestionCandidatosApi.ConexionDB;
+using GestionCandidatosApi.Modelos;
 using GestionCandidatosApi.Services;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +13,9 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("ConexionSql"),
         sqlOptions => sqlOptions.EnableRetryOnFailure());
 });
+builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.AddTransient<IUsuariosService, UsuariosService>();
+builder.Services.AddSingleton<EncryptionService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

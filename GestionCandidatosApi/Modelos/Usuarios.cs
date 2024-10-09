@@ -9,7 +9,7 @@
         public string? email { get; set; }
         public string? password { get; set; }
         public string? password2 { get; set; }
-        public string? estado { get; set; }
+        public string? estado { get; set; } // para borrados logicos Estado A: Activo, E: Eliminado
         public DateTime? fecha_creacion { get; set; }
     }
 }
