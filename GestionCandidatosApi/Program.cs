@@ -12,7 +12,23 @@ builder.Services.AddDbContext<Context>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("ConexionSql"),
         sqlOptions => sqlOptions.EnableRetryOnFailure());
 });
+
+
 builder.Services.AddTransient<IUsuariosService, UsuariosService>();
+builder.Services.AddTransient<IVacantesService, VacantesService>();
+
+builder.Services.AddTransient<ICandidatosService, CandidatosService>();
+builder.Services.AddTransient<IEntrevistasService, EntrevistasService>();
+builder.Services.AddTransient<IPermisoService, PermisoService>();
+builder.Services.AddTransient<IPuestosService, PuestosService>();
+builder.Services.AddTransient<IRolesService, RolesService>();
+
+builder.Services.AddTransient<IRoles_PermisosService, RolesPermisosService>();
+builder.Services.AddTransient<IUsuarios_RolesService, Usuarios_RolesService>();
+
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
