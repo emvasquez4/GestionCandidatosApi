@@ -1,5 +1,6 @@
 ﻿using GestionCandidatosApi.ConexionDB;
 using GestionCandidatosApi.Modelos;
+using GestionCandidatosApi.Services.Utilidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionCandidatosApi.Services
@@ -8,7 +9,7 @@ namespace GestionCandidatosApi.Services
         Task<List<Usuarios>> GetAll(Filtros filtro);
         Task<string> InsertUsuarios(Usuarios modelo);
         Task<int> UpdateUsuarios(Usuarios modelo);
-        Task<Usuarios> GetUsuario(Filtros filtro);
+        Task<Usuarios> GetUsuario(Usuarios user);
     }
     public class UsuariosService : IUsuariosService
     {
@@ -53,11 +54,12 @@ namespace GestionCandidatosApi.Services
         #endregion
 
         #region SELECT USER
-        public async Task<Usuarios> GetUsuario(Filtros filtro)
+        public async Task<Usuarios> GetUsuario(Usuarios user)
         {
             try
             {
-                var usuario = await dbContext.Usuarios.Where(m => m.username == filtro.FiltroPrimario && m.password == _encryptionService.Encrypt(filtro.FiltroSecundario)).FirstOrDefaultAsync();
+
+                var usuario = await dbContext.Usuarios.Where(m => m.username == user.username && m.password == _encryptionService.Encrypt(user.password)).FirstOrDefaultAsync();
 
                 if (usuario != null)
                 {
@@ -79,20 +81,27 @@ namespace GestionCandidatosApi.Services
         #region INSERT 
         public async Task<string> InsertUsuarios(Usuarios modelo)
         {
-            try
-            {
-                modelo.username = modelo.username != null ? modelo.username.ToUpper() : "no data";
-                modelo.estado = modelo.estado != null ? modelo.estado : "A";
-                modelo.password =_encryptionService.Encrypt(modelo.password);
 
-                dbContext.Usuarios.AddAsync(modelo);
-                dbContext.SaveChangesAsync();
-                return "Exito";
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error al insertar los usuarios al sistema");
-            }
+            //using (var transaction = dbContext.Database.BeginTransaction())
+            //{
+                try
+                {
+                    modelo.username = modelo.username != null ? modelo.username.ToUpper() : "no data";
+                    modelo.estado = modelo.estado != null ? modelo.estado : "A";
+                    modelo.password = _encryptionService.Encrypt(modelo.password);
+                    modelo.id = 2;
+
+                    await dbContext.Usuarios.AddAsync(modelo);
+                    await dbContext.SaveChangesAsync();
+                    //transaction.Commit();
+                    return "Exito";
+                }
+                catch(Exception e)
+                {
+                    //transaction.Rollback();
+                    throw new Exception("Error al insertar los usuarios al sistema");
+                }
+            
         }
 
         #endregion

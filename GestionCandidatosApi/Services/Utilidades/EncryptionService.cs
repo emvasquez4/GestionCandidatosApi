@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
 
-namespace GestionCandidatosApi.Services
+namespace GestionCandidatosApi.Services.Utilidades
 {
     public class EncryptionService
     {

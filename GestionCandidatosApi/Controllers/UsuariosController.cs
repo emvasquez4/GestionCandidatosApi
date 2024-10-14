@@ -1,13 +1,19 @@
 ﻿using GestionCandidatosApi.Modelos;
 using GestionCandidatosApi.Services;
+using GestionCandidatosApi.Services.Utilidades;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CreditCard.Controllers
 {
+    [ApiController]
+    [AllowAnonymous]
+    [Route("api/[controller]")]
     public class UsuariosController : Controller
     {
         public readonly IUsuariosService usuarios;
+        public readonly Utilidades _utilidades;
 
         public UsuariosController(IUsuariosService _usuarios) {
             usuarios = _usuarios;
@@ -31,7 +37,31 @@ namespace CreditCard.Controllers
         }
 
         [HttpPost]
-        [Route("UpdateUsuario")]
+        [Route("Login")]
+        public async Task<ActionResult<List<Usuarios>>> Login(Usuarios user)
+        {
+            try
+            {
+
+                var ListadoUsuarios = await usuarios.GetUsuario(user);
+
+                if(ListadoUsuarios == null)
+                {
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = false, token = "" });
+                }
+                else{
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _utilidades.generarJWT(ListadoUsuarios) });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("updateUsuario")]
         public async Task<ActionResult<int>> UpdateUsuario(Usuarios modelo)
         {
             try
@@ -60,8 +90,8 @@ namespace CreditCard.Controllers
         }
 
         [HttpPost]
-        [Route("InsertUsuario")]
-        public async Task<ActionResult<string>> InsertUsuario(Usuarios modelo)
+        [Route("addUsuario")]
+        public async Task<ActionResult<string>> InsertUsuario([FromBody]Usuarios modelo)
         {
             try
             {

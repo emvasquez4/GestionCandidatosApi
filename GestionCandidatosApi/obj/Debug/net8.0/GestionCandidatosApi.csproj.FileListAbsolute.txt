@@ -151,3 +151,4 @@ E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidato
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.pdb
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\GestionCandidatosApi.genruntimeconfig.cache
 E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\obj\Debug\net8.0\ref\GestionCandidatosApi.dll
+E:\backup\Proyectos\SistemaGestionPersonal\GestionCandidatosApi\GestionCandidatosApi\GestionCandidatosApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

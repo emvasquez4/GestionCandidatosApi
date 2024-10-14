@@ -25,6 +25,7 @@ namespace GestionCandidatosApi.ConexionDB
             #region usuarios
             dbBuilder.Entity<Usuarios>().ToTable("USUARIOS");
             dbBuilder.Entity<Usuarios>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Usuarios>().Property(s => s.id).ValueGeneratedOnAdd();
             #endregion
 
             #region vacantes
