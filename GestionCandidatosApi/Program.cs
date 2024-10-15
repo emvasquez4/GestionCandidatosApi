@@ -25,6 +25,7 @@ builder.Services.AddTransient<IVacantesService, VacantesService>();
 
 //builder.Services.AddTransient<IRoles_PermisosService, RolesPermisosService>();
 //builder.Services.AddTransient<IUsuarios_RolesService, Usuarios_RolesService>();
+//builder.Services.AddTransient<IMenus_MenusService, MenusService>();
 
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.AddTransient<IUsuariosService, UsuariosService>();

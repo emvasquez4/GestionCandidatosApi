@@ -2,8 +2,8 @@
 {
     public class Roles
     {
-        public int id { get; set; }
-        public string? nombreRoles { get; set; }
+        public int codigo_rol { get; set; }
+        public string? descripcion { get; set; }
         
     }
 }

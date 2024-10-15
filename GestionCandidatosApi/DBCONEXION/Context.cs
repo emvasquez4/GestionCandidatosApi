@@ -29,42 +29,47 @@ namespace GestionCandidatosApi.ConexionDB
 
             #region vacantes
             dbBuilder.Entity<Vacantes>().ToTable("VACANTES");
-            dbBuilder.Entity<Vacantes>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Vacantes>().HasKey(d => new { d.codigo_vacante });
             #endregion
 
             #region puestos
             dbBuilder.Entity<Puestos>().ToTable("PUESTOS");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Puestos>().HasKey(d => new { d.codigo_puesto });
             #endregion
 
             #region candidatos
-            dbBuilder.Entity<Puestos>().ToTable("CANDIDATOS");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Candidatos>().ToTable("CANDIDATOS");
+            dbBuilder.Entity<Candidatos>().HasKey(d => new { d.codigo_candidato });
             #endregion
 
             #region entrevistas
-            dbBuilder.Entity<Puestos>().ToTable("ENTREVISTAS");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Entrevistas>().ToTable("ENTREVISTAS");
+            dbBuilder.Entity<Entrevistas>().HasKey(d => new { d.codigo_entrevista });
             #endregion
 
             #region permiso
-            dbBuilder.Entity<Puestos>().ToTable("PERMISO");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Permiso>().ToTable("PERMISO");
+            dbBuilder.Entity<Permiso>().HasKey(d => new { d.codigo_permiso });
             #endregion
 
             #region roles
-            dbBuilder.Entity<Puestos>().ToTable("ROLES");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Roles>().ToTable("ROLES");
+            dbBuilder.Entity<Roles>().HasKey(d => new { d.codigo_rol });
             #endregion
 
             #region roles_permisos
-            dbBuilder.Entity<Puestos>().ToTable("ROLES_PERMISOS");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Roles_Permisos>().ToTable("ROLES_PERMISOS");
+            dbBuilder.Entity<Roles_Permisos>().HasKey(d => new { d.codigo_rol });
             #endregion
 
             #region usuarios_roles
-            dbBuilder.Entity<Puestos>().ToTable("USUARIOS_ROLES");
-            dbBuilder.Entity<Puestos>().HasKey(d => new { d.id });
+            dbBuilder.Entity<Usuarios_Roles>().ToTable("USUARIOS_ROLES");
+            dbBuilder.Entity<Usuarios_Roles>().HasKey(d => new { d.codigo_usuario });
+            #endregion
+
+            #region menus
+            dbBuilder.Entity<Menus>().ToTable("MENUS");
+            dbBuilder.Entity<Menus>().HasKey(d => new { d.id });
             #endregion
         }
 

@@ -2,3 +2,6 @@
 /.vs
 /GestionCandidatosApi/obj
 /GestionCandidatosApi/bin
+# Ignorar carpetas bin y obj 
+bin/
+obj/

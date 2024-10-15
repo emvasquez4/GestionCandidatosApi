@@ -50,7 +50,7 @@ namespace GestionCandidatosApi.Services
         {
             try
             {
-                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.id == Convert.ToInt32(filtro.FiltroPrimario));
+                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.codigo_vacante == Convert.ToInt32(filtro.FiltroPrimario));
 
                 if (vacante == null)
                 {
@@ -73,8 +73,8 @@ namespace GestionCandidatosApi.Services
             try
             {
                 // Asegurar que los campos estén en el formato correcto o asignar valores por defecto
-                modelo.nombreVacante = modelo.nombreVacante?.ToUpper() ?? "NO DATA";
-                modelo.estadoVacante = modelo.estadoVacante ?? "Disponible";
+                modelo.usuario_ingresa = modelo.usuario_ingresa?.ToUpper() ?? "NO DATA";
+                modelo.usuario_encargado = modelo.usuario_encargado ?? "Disponible";
 
                 await dbContext.Vacantes.AddAsync(modelo);
                 await dbContext.SaveChangesAsync();  // Asegurarse de que la operación sea asíncrona
@@ -95,7 +95,7 @@ namespace GestionCandidatosApi.Services
             try
             {
                 // Verificar si la vacante existe en la base de datos
-                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.id == modelo.id);
+                var vacante = await dbContext.Vacantes.FirstOrDefaultAsync(v => v.codigo_vacante == modelo.codigo_vacante);
 
                 if (vacante == null)
                 {
@@ -103,8 +103,8 @@ namespace GestionCandidatosApi.Services
                 }
 
                 // Actualizar los campos de la vacante con la nueva información
-                vacante.nombreVacante = modelo.nombreVacante?.ToUpper() ?? vacante.nombreVacante;
-                vacante.estadoVacante = modelo.estadoVacante ?? vacante.estadoVacante;
+                vacante.usuario_ingresa = modelo.usuario_ingresa?.ToUpper() ?? vacante.usuario_ingresa;
+                vacante.usuario_encargado = modelo.usuario_encargado ?? vacante.usuario_encargado;
 
                 // Guardar los cambios en la base de datos
                 await dbContext.SaveChangesAsync();
