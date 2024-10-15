@@ -21,9 +21,26 @@ builder.Services.AddControllers();
 
 
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IUsuariosService, UsuariosService>();
+builder.Services.AddTransient<IVacantesService, VacantesService>();
+
+builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
+builder.Services.AddTransient<IUsuariosService, UsuariosService>();
+builder.Services.AddSingleton<EncryptionService>();
+
+var encryptionService = builder.Services.BuildServiceProvider().GetRequiredService<EncryptionService>();
+
+
+// Lee la cadena de conexión encriptada desde la configuración
+var encryptedConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
+
+// Desencripta la cadena de conexión utilizando el servicio
+var decryptedConnectionString = encryptionService.Decrypt(encryptedConnectionString);
+
 builder.Services.AddDbContext<Context>(options =>
 {
-    options.UseMySQL(builder.Configuration.GetConnectionString("ConexionSql"),
+    options.UseMySQL(decryptedConnectionString,
         sqlOptions => sqlOptions.EnableRetryOnFailure());
 });
 builder.Services.AddSingleton<Utilidades>();
@@ -48,8 +65,6 @@ builder.Services.AddAuthentication(config =>
     };
 });
 
-builder.Services.AddTransient<IUsuariosService, UsuariosService>();
-builder.Services.AddTransient<IVacantesService, VacantesService>();
 
 
 //builder.Services.AddTransient<ICandidatosService, CandidatosService>();
@@ -61,9 +76,6 @@ builder.Services.AddTransient<IVacantesService, VacantesService>();
 //builder.Services.AddTransient<IRoles_PermisosService, RolesPermisosService>();
 //builder.Services.AddTransient<IUsuarios_RolesService, Usuarios_RolesService>();
 
-builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
-builder.Services.AddTransient<IUsuariosService, UsuariosService>();
-builder.Services.AddSingleton<EncryptionService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

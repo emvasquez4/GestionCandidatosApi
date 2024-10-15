@@ -86,10 +86,10 @@ namespace GestionCandidatosApi.Services
             //{
                 try
                 {
+                    modelo.fecha_creacion = DateTime.Now;
                     modelo.username = modelo.username != null ? modelo.username.ToUpper() : "no data";
                     modelo.estado = modelo.estado != null ? modelo.estado : "A";
                     modelo.password = _encryptionService.Encrypt(modelo.password);
-                    modelo.id = 2;
 
                     await dbContext.Usuarios.AddAsync(modelo);
                     await dbContext.SaveChangesAsync();
