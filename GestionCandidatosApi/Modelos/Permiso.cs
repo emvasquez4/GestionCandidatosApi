@@ -2,7 +2,8 @@
 {
     public class Permiso
     {
-        public int id { get; set; }
-      
+        public int codigo_permiso { get; set; }
+        public string? descripcion { get; set; }
+
     }
 }

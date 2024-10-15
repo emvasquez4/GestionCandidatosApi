@@ -2,7 +2,7 @@
 
 namespace GestionCandidatosApi.Controllers
 {
-    public class PermisoController : Controller
+    public class MenusController : Controller
     {
     }
 }

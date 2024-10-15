@@ -2,6 +2,7 @@
 {
     public class Usuarios_Roles
     {
-        public int id { get; set; }
+        public int codigo_usuario { get; set; }
+        public string? codigo_rol { get; set; }
     }
 }

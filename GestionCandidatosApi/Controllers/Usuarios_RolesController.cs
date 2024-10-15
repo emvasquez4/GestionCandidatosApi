@@ -1,6 +1,8 @@
-﻿namespace GestionCandidatosApi.Controllers
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace GestionCandidatosApi.Controllers
 {
-    public class Usuarios_RolesController
+    public class Usuarios_RolesController : Controller
     {
     }
 }

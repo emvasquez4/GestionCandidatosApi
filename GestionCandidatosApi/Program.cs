@@ -75,6 +75,7 @@ builder.Services.AddAuthentication(config =>
 
 //builder.Services.AddTransient<IRoles_PermisosService, RolesPermisosService>();
 //builder.Services.AddTransient<IUsuarios_RolesService, Usuarios_RolesService>();
+//builder.Services.AddTransient<IMenus_MenusService, MenusService>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
