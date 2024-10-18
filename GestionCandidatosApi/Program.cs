@@ -29,6 +29,7 @@ builder.Services.AddTransient<IPermisosService, PermisoService>();
 builder.Services.AddTransient<IPuestosService, PuestosService>();
 builder.Services.AddTransient<IMenusService, MenusService>();
 builder.Services.AddTransient<IRolesPermisosService, Roles_PermisosService>();
+builder.Services.AddTransient<IUsuariosRolesService, Usuarios_RolesService>();
 
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.AddScoped<Utilidades>();

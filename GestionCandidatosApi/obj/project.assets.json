@@ -1002,7 +1002,7 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
-      "MySql.Data/8.4.0": {
+      "MySql.Data/8.3.0": {
         "type": "package",
         "dependencies": {
           "BouncyCastle.Cryptography": "2.2.1",
@@ -1052,12 +1052,12 @@
           }
         }
       },
-      "MySql.EntityFrameworkCore/8.0.2": {
+      "MySql.EntityFrameworkCore/8.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
-          "MySql.Data": "8.4.0"
+          "Microsoft.EntityFrameworkCore": "8.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.0",
+          "MySql.Data": "8.3.0"
         },
         "compile": {
           "lib/net8.0/MySql.EntityFrameworkCore.dll": {
@@ -3619,10 +3619,10 @@
         "mono.texttemplating.nuspec"
       ]
     },
-    "MySql.Data/8.4.0": {
-      "sha512": "NA273x7ybutfGwGbF2cd8rLVM5t7AkZCzRHr/+tGms1FeMlfl+LgfjHXcb5qN1QxFpeNQQKZ+vqZw8v/S8gUiA==",
+    "MySql.Data/8.3.0": {
+      "sha512": "bAQlkLYvTYt5MtXAgHGURSBSUWynIvyN2FVQFUg51I2grxsOfnJSyGvO7YsDRnU7IvUNfMdxq8rNXiP5P4hMlw==",
       "type": "package",
-      "path": "mysql.data/8.4.0",
+      "path": "mysql.data/8.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3642,7 +3642,7 @@
         "lib/netstandard2.1/MySql.Data.dll",
         "lib/netstandard2.1/MySql.Data.xml",
         "logo-mysql-170x115.png",
-        "mysql.data.8.4.0.nupkg.sha512",
+        "mysql.data.8.3.0.nupkg.sha512",
         "mysql.data.nuspec",
         "runtimes/win-x64/native/comerr64.dll",
         "runtimes/win-x64/native/gssapi64.dll",
@@ -3651,10 +3651,10 @@
         "runtimes/win-x64/native/krbcc64.dll"
       ]
     },
-    "MySql.EntityFrameworkCore/8.0.2": {
-      "sha512": "lhGVtE3xJntQY2oc3OZ5KW3RvPkkBdEGuY9WMyjb7cECQuB09QX8G0RxXg8z0duxm1Qd7X0oecT1ilEOFKaX4Q==",
+    "MySql.EntityFrameworkCore/8.0.0": {
+      "sha512": "u2Djzvj2YJdJ4T8+BXbPwFTXDK3XzW36Z9sM+c2BHMNYBPq1mQHc8ycr77jLR+1qyBB/G6rpChquT1qot3m0hw==",
       "type": "package",
-      "path": "mysql.entityframeworkcore/8.0.2",
+      "path": "mysql.entityframeworkcore/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3666,7 +3666,7 @@
         "lib/net8.0/MySql.EntityFrameworkCore.dll",
         "lib/net8.0/MySql.EntityFrameworkCore.xml",
         "logo-mysql-170x115.png",
-        "mysql.entityframeworkcore.8.0.2.nupkg.sha512",
+        "mysql.entityframeworkcore.8.0.0.nupkg.sha512",
         "mysql.entityframeworkcore.nuspec"
       ]
     },
@@ -5347,30 +5347,30 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.6",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.6",
-      "MySql.EntityFrameworkCore >= 8.0.2",
+      "MySql.EntityFrameworkCore >= 8.0.0",
       "MySqlConnector >= 2.3.7",
       "Pomelo.EntityFrameworkCore.MySql >= 8.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AP\\.nuget\\packages\\": {},
+    "C:\\Users\\Mauricio\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AP\\Documents\\dsi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
+      "projectUniqueName": "E:\\backup\\Proyectos\\SistemaGestionPersonal\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
       "projectName": "GestionCandidatosApi",
-      "projectPath": "C:\\Users\\AP\\Documents\\dsi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
-      "packagesPath": "C:\\Users\\AP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AP\\Documents\\dsi\\GestionCandidatosApi\\GestionCandidatosApi\\obj\\",
+      "projectPath": "E:\\backup\\Proyectos\\SistemaGestionPersonal\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
+      "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
+      "outputPath": "E:\\backup\\Proyectos\\SistemaGestionPersonal\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\AP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mauricio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5379,7 +5379,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5433,7 +5432,7 @@
           },
           "MySql.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[8.0.2, )"
+            "version": "[8.0.0, )"
           },
           "MySqlConnector": {
             "target": "Package",
@@ -5467,7 +5466,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

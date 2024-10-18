@@ -1,11 +1,13 @@
 ﻿using GestionCandidatosApi.ConexionDB;
 using GestionCandidatosApi.Modelos;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionCandidatosApi.Services
 {
-    public interface IRolesPermisosService { 
-    
+
+    public interface IRolesPermisosService {
+        Task<List<Roles_Permisos>> GetAll(Filtros filtro);
     }
     public class Roles_PermisosService : IRolesPermisosService
     {

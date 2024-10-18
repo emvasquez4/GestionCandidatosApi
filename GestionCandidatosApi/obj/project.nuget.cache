@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tZ5joJDz0SkePYU72tTefx1vwODavVBymPx4sJ17Kp6lIi57tv403FVMdMRLyX4rNMVqyLjgu7PmwqzyRtfBiw==",
+  "dgSpecHash": "brPAFlLy8QFhNKrFuIRYOIOf8t9yuj2NpU/kMoLB/3rADceycpEZnq4kALH0Lif8epnvNg8s7IAs7DewqykKUA==",
   "success": true,
   "projectFilePath": "E:\\backup\\Proyectos\\SistemaGestionPersonal\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi\\GestionCandidatosApi.csproj",
   "expectedPackageFiles": [
@@ -54,8 +54,8 @@
     "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\Mauricio\\.nuget\\packages\\mysql.data\\8.4.0\\mysql.data.8.4.0.nupkg.sha512",
-    "C:\\Users\\Mauricio\\.nuget\\packages\\mysql.entityframeworkcore\\8.0.2\\mysql.entityframeworkcore.8.0.2.nupkg.sha512",
+    "C:\\Users\\Mauricio\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
+    "C:\\Users\\Mauricio\\.nuget\\packages\\mysql.entityframeworkcore\\8.0.0\\mysql.entityframeworkcore.8.0.0.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\mysqlconnector\\2.3.7\\mysqlconnector.2.3.7.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\8.0.2\\pomelo.entityframeworkcore.mysql.8.0.2.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",

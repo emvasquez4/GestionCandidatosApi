@@ -52,7 +52,7 @@ namespace GestionCandidatosApi.Services
                 throw e;
             }
         }
-        #endregion(Context _dbContext)
+        #endregion
         
 
     }

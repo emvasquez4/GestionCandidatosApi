@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestionCandidatosApi.Services
 {
     public interface IMenusService {
-        Task<List<Menus>> GetAll(Filtros filtro)
+        Task<List<Menus>> GetAll(Filtros filtro);
     }
     public class MenusService : IMenusService
     {
