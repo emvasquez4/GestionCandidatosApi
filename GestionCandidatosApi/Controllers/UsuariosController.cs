@@ -15,8 +15,9 @@ namespace CreditCard.Controllers
         public readonly IUsuariosService usuarios;
         public readonly Utilidades _utilidades;
 
-        public UsuariosController(IUsuariosService _usuarios) {
+        public UsuariosController(IUsuariosService _usuarios, Utilidades utilidades) {
             usuarios = _usuarios;
+            _utilidades = utilidades;
         }
 
         [HttpPost]
@@ -50,7 +51,8 @@ namespace CreditCard.Controllers
                     return StatusCode(StatusCodes.Status200OK, new { isSuccess = false, token = "" });
                 }
                 else{
-                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = _utilidades.generarJWT(ListadoUsuarios) });
+                    var token = _utilidades.generarJWT(ListadoUsuarios);
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = token });
                 }
 
             }

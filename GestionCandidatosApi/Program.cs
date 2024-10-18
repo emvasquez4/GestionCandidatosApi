@@ -24,9 +24,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IUsuariosService, UsuariosService>();
 builder.Services.AddTransient<IVacantesService, VacantesService>();
+builder.Services.AddTransient<IRolesService, RolesService>();
+builder.Services.AddTransient<IPermisosService, PermisoService>();
+builder.Services.AddTransient<IPuestosService, PuestosService>();
+builder.Services.AddTransient<IMenusService, MenusService>();
+builder.Services.AddTransient<IRolesPermisosService, Roles_PermisosService>();
 
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
-builder.Services.AddTransient<IUsuariosService, UsuariosService>();
+builder.Services.AddScoped<Utilidades>();
 builder.Services.AddSingleton<EncryptionService>();
 
 var encryptionService = builder.Services.BuildServiceProvider().GetRequiredService<EncryptionService>();

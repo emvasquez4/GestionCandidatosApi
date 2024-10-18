@@ -7,6 +7,7 @@
         public DateTime fecha { get; set; }
         public string? encargado { get; set; }
         public string? usuario_ingresa { get; set; }
+        public string? estado { get; set; }
 
     }
 }

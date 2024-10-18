@@ -17,7 +17,8 @@ namespace GestionCandidatosApi.ConexionDB
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Roles_Permisos> Roles_Permisos { get; set; }
         public DbSet<Usuarios_Roles> Usuarios_Roles { get; set; }
-        
+        public DbSet<Menus> Menus { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder dbBuilder) 
