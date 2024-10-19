@@ -6,6 +6,8 @@ namespace GestionCandidatosApi.Services
 {
     public interface IPermisosService {
         Task<List<Permiso>> GetAll(Filtros filtro);
+        Task<string> InsertPermisos(Permiso modelo);
+        Task<int> UpdatePermisos(Permiso modelo);
     }
     public class PermisoService : IPermisosService
     {
@@ -51,6 +53,60 @@ namespace GestionCandidatosApi.Services
                 throw e;
             }
         }
+        #endregion
+
+        #region INSERT 
+        public async Task<string> InsertPermisos(Permiso modelo)
+        {
+
+            try
+            {
+                modelo.descripcion = modelo.descripcion ?? "no data";
+                modelo.estado = modelo.estado ?? "A"; // Valor por defecto
+               
+                await dbContext.Permisos.AddAsync(modelo);
+                await dbContext.SaveChangesAsync();
+                //transaction.Commit();
+                return "Exito";
+            }
+            catch (Exception e)
+            {
+                //transaction.Rollback();
+                throw new Exception("Error al insertar candidatos");
+            }
+        }
+        #endregion
+
+        #region UPDATE 
+        public async Task<int> UpdatePermisos(Permiso modelo)
+        {
+            try
+            {
+                var ejecuta = 0; //verifica si existe
+                var permiso = await dbContext.Permisos.Where(m => m.codigo_permiso == modelo.codigo_permiso).FirstOrDefaultAsync();
+                if (permiso != null)
+                {
+                    // Actualizar las propiedades de la entrevista
+                    permiso.descripcion = modelo.descripcion;
+                    permiso.estado = modelo.estado;
+
+                    // Guardar los cambios en la base de datos
+                    dbContext.Permisos.Update(permiso);
+                    ejecuta = await dbContext.SaveChangesAsync();
+                }
+                else
+                {
+                    ejecuta = 1;
+                }
+
+                return ejecuta;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al insertar permiso al sistema");
+            }
+        }
+
         #endregion
     }
 
