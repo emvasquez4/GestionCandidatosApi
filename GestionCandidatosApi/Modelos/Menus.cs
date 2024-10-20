@@ -7,5 +7,7 @@
         public string? icon { get; set; }
         public string? to { get; set; }
         public string? estado { get; set; }
+        public string? view { get; set; }
+        public string? function { get; set; }
     }
 }

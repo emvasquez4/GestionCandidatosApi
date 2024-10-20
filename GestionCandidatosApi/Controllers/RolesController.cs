@@ -32,5 +32,29 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("addRoles")]
+        public async Task<ActionResult<string>> InsertUsuario([FromBody] Roles modelo)
+        {
+            try
+            {
+                var result = await roles.InsertRoles(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Menu insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

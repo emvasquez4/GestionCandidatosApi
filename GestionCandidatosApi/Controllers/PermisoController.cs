@@ -2,6 +2,7 @@
 using GestionCandidatosApi.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace GestionCandidatosApi.Controllers
 {
@@ -9,7 +10,7 @@ namespace GestionCandidatosApi.Controllers
     [Route("api/[controller]")]
     public class PermisoController : Controller
     {
-        public readonly IPermisosService Permisos;
+        private readonly IPermisosService Permisos;
 
         public PermisoController(IPermisosService _Permisos)
         {
@@ -29,6 +30,30 @@ namespace GestionCandidatosApi.Controllers
             }
             catch (Exception ex)
             {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("addPermisos")]
+        public async Task<ActionResult<string>> InsertUsuario([FromBody] Permiso modelo)
+        {
+            try
+            {
+                var result = await Permisos.InsertPermisos(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Permiso insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el permiso.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
                 return BadRequest(ex.Message);
             }
         }

@@ -28,7 +28,7 @@ namespace CreditCard.Controllers
             {
                
                 var ListadoUsuarios = await usuarios.GetAll(filtro);
-                return Ok(ListadoUsuarios = await usuarios.GetAll(filtro));
+                return Ok(ListadoUsuarios);
 
             }
             catch(Exception ex)
@@ -52,7 +52,7 @@ namespace CreditCard.Controllers
                 }
                 else{
                     var token = _utilidades.generarJWT(ListadoUsuarios);
-                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = token });
+                    return StatusCode(StatusCodes.Status200OK, new { isSuccess = true, token = token, usuario = ListadoUsuarios });
                 }
 
             }

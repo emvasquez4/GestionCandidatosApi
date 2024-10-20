@@ -7,6 +7,10 @@ namespace GestionCandidatosApi.Services
     public interface IRolesService
     {
         Task<List<Roles>> GetAll(Filtros filtro);
+
+        Task<string> InsertRoles(Roles modelo);
+
+        Task<int> UpdateRoles(Roles modelo);
     }
     public class RolesService : IRolesService
     {

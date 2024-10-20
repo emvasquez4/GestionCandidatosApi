@@ -8,6 +8,7 @@ namespace GestionCandidatosApi.Services
 
     public interface IRolesPermisosService {
         Task<List<Roles_Permisos>> GetAll(Filtros filtro);
+        Task<string> InsertRP(Roles_Permisos modelo);
     }
     public class Roles_PermisosService : IRolesPermisosService
     {
@@ -47,6 +48,26 @@ namespace GestionCandidatosApi.Services
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        #endregion
+
+        #region INSERT 
+        public async Task<string> InsertRP(Roles_Permisos modelo)
+        {
+
+            try
+            {
+                
+                await _dbContext.Roles_Permisos.AddAsync(modelo);
+                await _dbContext.SaveChangesAsync();
+                //transaction.Commit();
+                return "Exito";
+            }
+            catch (Exception e)
+            {
+                //transaction.Rollback();
+                throw new Exception("Error al insertar permisos al rol");
             }
         }
         #endregion

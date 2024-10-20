@@ -66,12 +66,11 @@ namespace GestionCandidatosApi.Services
                
                 await dbContext.Permisos.AddAsync(modelo);
                 await dbContext.SaveChangesAsync();
-                //transaction.Commit();
+               
                 return "Exito";
             }
             catch (Exception e)
-            {
-                //transaction.Rollback();
+            { 
                 throw new Exception("Error al insertar candidatos");
             }
         }

@@ -6,6 +6,8 @@ namespace GestionCandidatosApi.Services
 {
     public interface IMenusService {
         Task<List<Menus>> GetAll(Filtros filtro);
+
+        Task<string> InsertMenus(Menus modelo);
     }
     public class MenusService : IMenusService
     {
@@ -48,6 +50,28 @@ namespace GestionCandidatosApi.Services
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        #endregion
+
+        #region INSERT 
+        public async Task<string> InsertMenus(Menus modelo)
+        {
+
+            try
+            {
+                modelo.titulo = modelo.titulo ?? "no data";
+                modelo.estado = modelo.estado ?? "A"; // Valor por defecto
+
+                await _dbContext.Menus.AddAsync(modelo);
+                await _dbContext.SaveChangesAsync();
+                //transaction.Commit();
+                return "Exito";
+            }
+            catch (Exception e)
+            {
+                //transaction.Rollback();
+                throw new Exception("Error al insertar candidatos");
             }
         }
         #endregion

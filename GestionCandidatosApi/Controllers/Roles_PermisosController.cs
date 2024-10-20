@@ -31,5 +31,29 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("addRP")]
+        public async Task<ActionResult<string>> InsertRP([FromBody] Roles_Permisos modelo)
+        {
+            try
+            {
+                var result = await roles.InsertRP(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Permiso  insertado al rol correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el permiso al rol.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
