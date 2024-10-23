@@ -5,4 +5,6 @@
         public int codigo_usuario { get; set; }
         public string? codigo_rol { get; set; }
     }
+
+
 }

@@ -92,11 +92,54 @@ namespace GestionCandidatosApi.Controllers
                     })
                     .ToList();
 
+
                 return Ok(permisosAgrupados);
 
             }
             catch (Exception ex)
             {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("getPermisosUsuarios")]
+        public async Task<ActionResult<PermisoSalida>> getPermisosUsuarios([FromBody] Filtros filtro)
+        {
+            try
+            {
+                List<Roles_Permisos> RP = new List<Roles_Permisos>();
+                List<Menus> MenuSalida = new List<Menus>();
+                var Listado = await usuariosRoles.GetAll(filtro);
+                var permisosCodigos = new List<string>();
+
+                foreach (var r in Listado)
+                {
+                    var rolesPermiso = await dbContext.Roles_Permisos.
+                                            Where(s => s.codigo_rol == r.codigo_rol)
+                                             .Select(s => s.codigo_permiso).
+                                            ToListAsync();
+                    permisosCodigos.AddRange(rolesPermiso);
+                }
+                permisosCodigos = permisosCodigos.Distinct().ToList();
+
+                // Filtrar los permisos que pertenecen a la pantalla específica.
+                var permisoSalida = new PermisoSalida
+                {
+                    nuevo = permisosCodigos.Any(p => p == $"ADD-{filtro.FiltroTerciario}"),
+                    actualizar = permisosCodigos.Any(p => p == $"UPDATE-{filtro.FiltroTerciario}"),
+                    eliminar = permisosCodigos.Any(p => p == $"DELETE-{filtro.FiltroTerciario}"),
+                    consultar = permisosCodigos.Any(p => p == $"QUERY-{filtro.FiltroTerciario}"),
+                    pdf = permisosCodigos.Any(p => p == $"PDF-{filtro.FiltroTerciario}")
+                };
+
+
+
+                return Ok(permisoSalida);
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
                 return BadRequest(ex.Message);
             }
         }

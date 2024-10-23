@@ -8,4 +8,13 @@
         public string? estado { get; set; }
 
     }
+
+    public class PermisoSalida { 
+        public bool nuevo { get; set; }
+        public bool actualizar { get; set; }
+        public bool eliminar { get; set; }
+        public bool consultar { get; set; }
+        public bool pdf { get; set; }
+
+    }
 }

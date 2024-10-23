@@ -7,5 +7,6 @@ namespace GestionCandidatosApi.Modelos
     {
         public string? FiltroPrimario { get; set; }
         public string? FiltroSecundario { get; set; }
+        public string? FiltroTerciario { get; set; }
     }
 }
