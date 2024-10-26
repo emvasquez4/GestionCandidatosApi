@@ -8,6 +8,7 @@ namespace GestionCandidatosApi.Services
         Task<List<Permiso>> GetAll(Filtros filtro);
         Task<string> InsertPermisos(Permiso modelo);
         Task<int> UpdatePermisos(Permiso modelo);
+        Task<string> DeletePermiso(Permiso modelo);
     }
     public class PermisoService : IPermisosService
     {
@@ -76,6 +77,22 @@ namespace GestionCandidatosApi.Services
         }
         #endregion
 
+        #region DELETE
+        public async Task<string> DeletePermiso(Permiso modelo)
+        {
+            // Busca el permiso en la base de datos
+            var permiso = await dbContext.Permisos.Where(m => m.codigo_permiso == modelo.codigo_permiso).FirstOrDefaultAsync();
+
+            if (permiso != null)
+            {
+                // Si se encuentra el permiso, se elimina
+                dbContext.Permisos.Remove(permiso);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
+        }
+        #endregion
         #region UPDATE 
         public async Task<int> UpdatePermisos(Permiso modelo)
         {

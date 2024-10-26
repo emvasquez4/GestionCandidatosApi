@@ -9,6 +9,7 @@ namespace GestionCandidatosApi.Services
         Task<List<Candidatos>> GetAll(Filtros filtro);
         Task<string> InsertCandidatos(Candidatos modelo);
         Task<int> UpdateCandidatos(Candidatos modelo);
+        Task<string> DeleteCandidato(Candidatos modelo);
         //  Task<Entrevistas> GetEntrevista(Entrevistas entrevista);
     }
     public class CandidatosService : ICandidatosService
@@ -52,6 +53,23 @@ namespace GestionCandidatosApi.Services
                 //transaction.Rollback();
                 throw new Exception("Error al insertar candidatos");
             }
+        }
+        #endregion
+
+        #region DELETE
+        public async Task<string> DeleteCandidato(Candidatos modelo)
+        {
+            // Busca el candidato en la base de datos
+            var candidato = await dbContext.Candidatos.Where(m => m.codigo_candidato == modelo.codigo_candidato).FirstOrDefaultAsync();
+
+            if (candidato != null)
+            {
+                // Si se encuentra el candidato, se elimina
+                dbContext.Candidatos.Remove(candidato);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
         }
         #endregion
 

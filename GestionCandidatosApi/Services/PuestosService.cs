@@ -8,6 +8,7 @@ namespace GestionCandidatosApi.Services
         Task<List<Puestos>> GetAll(Filtros filtro);
         Task<string> InsertPuestos(Puestos modelo);
         Task<int> UpdatePuestos(Puestos modelo);
+        Task<string> DeletePuesto(Puestos modelo);
 
     }
     public class PuestosService : IPuestosService
@@ -76,6 +77,23 @@ namespace GestionCandidatosApi.Services
                 //transaction.Rollback();
                 throw new Exception("Error al insertar puesto");
             }
+        }
+        #endregion
+
+        #region DELETE
+        public async Task<string> DeletePuesto(Puestos modelo)
+        {
+            // Busca el puesto en la base de datos
+            var puesto = await dbContext.Puestos.Where(m => m.codigo_puesto == modelo.codigo_puesto).FirstOrDefaultAsync();
+
+            if (puesto != null)
+            {
+                // Si se encuentra el candidato, se elimina
+                dbContext.Puestos.Remove(puesto);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
         }
         #endregion
 

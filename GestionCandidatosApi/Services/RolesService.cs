@@ -11,6 +11,7 @@ namespace GestionCandidatosApi.Services
         Task<string> InsertRoles(Roles modelo);
 
         Task<int> UpdateRoles(Roles modelo);
+        Task<string> DeleteRol(Roles modelo);
     }
     public class RolesService : IRolesService
     {
@@ -79,7 +80,22 @@ namespace GestionCandidatosApi.Services
             }
         }
         #endregion
+        #region DELETE
+        public async Task<string> DeleteRol(Roles modelo)
+        {
+            // Busca el rol en la base de datos
+            var rol = await dbContext.Roles.Where(m => m.codigo_rol == modelo.codigo_rol).FirstOrDefaultAsync();
 
+            if (rol != null)
+            {
+                // Si se encuentra el rol, se elimina
+                dbContext.Roles.Remove(rol);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
+        }
+        #endregion
         #region UPDATE 
         public async Task<int> UpdateRoles(Roles modelo)
         {
