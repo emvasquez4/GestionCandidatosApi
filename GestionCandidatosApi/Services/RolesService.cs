@@ -111,7 +111,8 @@ namespace GestionCandidatosApi.Services
 
                     // Guardar los cambios en la base de datos
                     dbContext.Roles.Update(rol);
-                    ejecuta = await dbContext.SaveChangesAsync();
+                    await dbContext.SaveChangesAsync();
+                    ejecuta = 0;
                 }
                 else
                 {

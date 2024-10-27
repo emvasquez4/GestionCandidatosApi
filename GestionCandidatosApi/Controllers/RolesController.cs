@@ -43,11 +43,11 @@ namespace GestionCandidatosApi.Controllers
 
                 if (result == "Exito")
                 {
-                    return Ok("Menu insertado correctamente.");
+                    return Ok("Rol insertado correctamente.");
                 }
                 else
                 {
-                    return BadRequest("Hubo un problema al insertar el usuario.");
+                    return BadRequest("Hubo un problema al insertar el Rol.");
                 }
             }
             catch (Exception ex)
