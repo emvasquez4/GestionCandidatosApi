@@ -7,7 +7,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlwQM4rD4W068KKPlcrskPAAAAAACAAAAAAAQZgAAAAEAACAAAACYNmnr4Fd4oyN9FvaYucl0e9/C1es0l22GRdDASYIehgAAAAAOgAAAAAIAACAAAAA5UbnLTdgGjK/eBE0gf4flvbDLZUgo1AHqPdA7TSNEHSAAAACjKcKOkwEur/0KXgAL5+AMUmMLOOh9ZdR/EfaejGvXOEAAAACX7W+GuvCumgOXRmvZEdmqi0QtQM2gcWY1I1dsfEe6ODnNLrs9GK8qTx3PEM5qoDaxr8R4q8f/c9vPLmHSUpcj</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.30/www.dsicandidatosapi.somee.com</_PublishTargetUrl>
-    <History>True|2024-10-20T01:46:21.3360757Z;True|2024-10-13T17:54:23.0843351-06:00;True|2024-10-13T17:38:14.7352999-06:00;True|2024-10-13T17:30:36.9378666-06:00;</History>
+    <History>True|2024-11-21T04:21:42.9140997Z;True|2024-11-20T21:24:42.5498109-06:00;True|2024-10-27T08:04:39.7350460-06:00;True|2024-10-27T06:49:54.6994979-06:00;True|2024-10-19T19:46:21.3360757-06:00;True|2024-10-13T17:54:23.0843351-06:00;True|2024-10-13T17:38:14.7352999-06:00;True|2024-10-13T17:30:36.9378666-06:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -30,16 +30,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/21/2023 06:06:40</publishTime>
     </File>
     <File Include="GestionCandidatosApi.deps.json">
-      <publishTime>10/19/2024 19:44:07</publishTime>
+      <publishTime>11/20/2024 22:19:41</publishTime>
     </File>
     <File Include="GestionCandidatosApi.dll">
-      <publishTime>10/19/2024 19:44:03</publishTime>
+      <publishTime>11/20/2024 22:19:38</publishTime>
     </File>
     <File Include="GestionCandidatosApi.exe">
-      <publishTime>10/19/2024 19:44:03</publishTime>
+      <publishTime>11/20/2024 22:19:38</publishTime>
     </File>
     <File Include="GestionCandidatosApi.pdb">
-      <publishTime>10/19/2024 19:44:03</publishTime>
+      <publishTime>11/20/2024 22:19:38</publishTime>
     </File>
     <File Include="GestionCandidatosApi.runtimeconfig.json">
       <publishTime>10/19/2024 19:44:04</publishTime>
@@ -207,7 +207,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/22/2021 17:49:44</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/19/2024 19:44:07</publishTime>
+      <publishTime>11/20/2024 22:19:41</publishTime>
     </File>
     <File Include="ZstdSharp.dll">
       <publishTime>04/06/2023 06:25:30</publishTime>

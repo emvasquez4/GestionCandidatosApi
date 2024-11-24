@@ -1,5 +1,6 @@
 ﻿using GestionCandidatosApi.ConexionDB;
 using GestionCandidatosApi.Modelos;
+using GestionCandidatosApi.Services.Utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -57,10 +58,20 @@ namespace GestionCandidatosApi.Services
         {
 
             try
-            {
+            { 
+                Roles_Permisos data = new Roles_Permisos();
+                foreach(var item in modelo.permisos)
+                {
+                    data.codigo_rol = modelo.codigo_rol;
+                    data.codigo_permiso = item;
+                    data.estado = "A";
+
+                    await _dbContext.Roles_Permisos.AddAsync(data);
+                    await _dbContext.SaveChangesAsync();
+                }
                 
-                await _dbContext.Roles_Permisos.AddAsync(modelo);
-                await _dbContext.SaveChangesAsync();
+               
+                
                 //transaction.Commit();
                 return "Exito";
             }
@@ -70,6 +81,32 @@ namespace GestionCandidatosApi.Services
                 throw new Exception("Error al insertar permisos al rol");
             }
         }
+        #endregion
+
+        #region UPDATE 
+        public async Task<int> Update(Roles_Permisos modelo)
+        {
+            try
+            {
+                var ejecuta = 0; //verifica si existe
+                var usuario = await _dbContext.Roles_Permisos.Where(m => m.codigo_rol == modelo.codigo_rol).ToListAsync();
+                if (usuario != null)
+                {
+                    
+                }
+                else
+                {
+                    ejecuta = 1;
+                }
+
+                return ejecuta;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al insertar los usuarios al sistema");
+            }
+        }
+
         #endregion
     }
 }

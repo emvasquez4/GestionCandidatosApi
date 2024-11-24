@@ -62,6 +62,7 @@ namespace GestionCandidatosApi.ConexionDB
             #region roles_permisos
             dbBuilder.Entity<Roles_Permisos>().ToTable("ROLES_PERMISOS");
             dbBuilder.Entity<Roles_Permisos>().HasKey(d => new { d.codigo_rol });
+            dbBuilder.Entity<Roles_Permisos>().Ignore(s => s.permisos);
             #endregion
 
             #region usuarios_roles

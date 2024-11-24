@@ -3,6 +3,7 @@ using GestionCandidatosApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace GestionCandidatosApi.Controllers
@@ -31,6 +32,31 @@ namespace GestionCandidatosApi.Controllers
             catch (Exception ex)
             {
                 // Aquí puedes agregar un logger para capturar la excepción
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        [HttpPost]
+        [Route("addVacantes")]
+        public async Task<ActionResult<string>> InsertUsuario([FromBody] Vacantes modelo)
+        {
+            try
+            {
+                var result = await _vacantesService.InsertVacantes(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Vacante insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar la Vacante.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
                 return BadRequest(ex.Message);
             }
         }

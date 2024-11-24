@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using System.Data;
 
 namespace GestionCandidatosApi.Controllers
 {
@@ -38,6 +39,33 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpPost]
+        [Route("addUsuariosRoles")]
+        public async Task<ActionResult<string>> InsertUsuario([FromBody] Usuarios_Roles modelo)
+        {
+            try
+            {
+                var result = await usuariosRoles.InsertRoles(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Menu insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el usuario.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
+
+
 
         [HttpPost]
         [Route("GetUserRolePermiso")]

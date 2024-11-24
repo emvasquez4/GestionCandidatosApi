@@ -93,8 +93,7 @@ namespace GestionCandidatosApi.Services
                     rol.descripcion = modelo.descripcion;
                     rol.estado = modelo.estado;
 
-                    // Guardar los cambios en la base de datos
-                    dbContext.Roles.Update(rol);
+                   
                     ejecuta = await dbContext.SaveChangesAsync();
                 }
                 else

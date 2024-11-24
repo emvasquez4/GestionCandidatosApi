@@ -75,11 +75,12 @@ namespace GestionCandidatosApi.Services
                 // Asegurar que los campos estén en el formato correcto o asignar valores por defecto
                 modelo.usuario_ingresa = modelo.usuario_ingresa?.ToUpper() ?? "NO DATA";
                 modelo.usuario_encargado = modelo.usuario_encargado ?? "Disponible";
+                modelo.estado = "A";
 
                 await dbContext.Vacantes.AddAsync(modelo);
                 await dbContext.SaveChangesAsync();  // Asegurarse de que la operación sea asíncrona
 
-                return "Éxito";
+                return "Exito";
             }
             catch (Exception e)
             {

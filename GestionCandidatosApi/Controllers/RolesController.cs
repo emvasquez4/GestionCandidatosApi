@@ -56,5 +56,29 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpPost]
+        [Route("updateRoles")]
+        public async Task<ActionResult<string>> updateRoles([FromBody] Roles modelo)
+        {
+            try
+            {
+                var result = await roles.UpdateRoles(modelo);
+
+                if (result == 0)
+                {
+                    return Ok("Permiso insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el permiso.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

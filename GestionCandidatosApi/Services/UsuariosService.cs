@@ -123,8 +123,8 @@ namespace GestionCandidatosApi.Services
                     else {
                        
                         usuario.password = _encryptionService.Encrypt(modelo.password);
-                       
-                        dbContext.Usuarios.Add(usuario);
+                        usuario.email = modelo.email;
+                        usuario.estado = modelo.estado;
                         ejecuta = 0;
                     }
                 }

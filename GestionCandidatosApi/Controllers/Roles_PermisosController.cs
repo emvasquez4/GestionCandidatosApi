@@ -16,7 +16,7 @@ namespace GestionCandidatosApi.Controllers
         }
 
         [HttpPost]
-        [Route("GetAllRoles_Permisos")]
+        [Route("GetAllRolesPermisos")]
         public async Task<ActionResult<List<Roles_Permisos>>> GetAllRoles_Permisos(Filtros filtro)
         {
             try
@@ -33,7 +33,7 @@ namespace GestionCandidatosApi.Controllers
         }
 
         [HttpPost]
-        [Route("addRP")]
+        [Route("addRolesPermisos")]
         public async Task<ActionResult<string>> InsertRP([FromBody] Roles_Permisos modelo)
         {
             try

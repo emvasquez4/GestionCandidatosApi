@@ -6,6 +6,7 @@ namespace GestionCandidatosApi.Services
 {
     public interface IUsuariosRolesService {
         Task<List<Usuarios_Roles>> GetAll(Filtros filtro);
+        Task<string> InsertRoles(Usuarios_Roles modelo);
     }
     public class Usuarios_RolesService : IUsuariosRolesService
     {
@@ -46,6 +47,27 @@ namespace GestionCandidatosApi.Services
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+        #endregion
+
+        #region INSERT 
+        public async Task<string> InsertRoles(Usuarios_Roles modelo)
+        {
+
+            try
+            {
+             
+
+                await dbContext.Usuarios_Roles.AddAsync(modelo);
+                await dbContext.SaveChangesAsync();
+                //transaction.Commit();
+                return "Exito";
+            }
+            catch (Exception e)
+            {
+                //transaction.Rollback();
+                throw new Exception("Error al insertar candidatos");
             }
         }
         #endregion
