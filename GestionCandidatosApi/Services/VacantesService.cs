@@ -10,6 +10,7 @@ namespace GestionCandidatosApi.Services
         Task<string> InsertVacantes(Vacantes modelo);   // Insertar una nueva vacante
         Task<int> UpdateVacantes(Vacantes modelo);      // Actualizar una vacante
         Task<Vacantes> GetVacante(Filtros filtro);      // Obtener una vacante específica
+        Task<string> DeleteVacante(Vacantes modelo);
     }
 
     public class VacantesService : IVacantesService
@@ -89,6 +90,22 @@ namespace GestionCandidatosApi.Services
         }
         #endregion
 
+        #region DELETE
+        public async Task<string> DeleteVacante(Vacantes modelo)
+        {
+            // Busca el candidato en la base de datos
+            var vacante = await dbContext.Vacantes.Where(m => m.codigo_vacante == modelo.codigo_vacante).FirstOrDefaultAsync();
+
+            if (vacante != null)
+            {
+                // Si se encuentra el candidato, se elimina
+                dbContext.Vacantes.Remove(vacante);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
+        }
+        #endregion
         #region UPDATE 
         // Método para actualizar una vacante existente
         public async Task<int> UpdateVacantes(Vacantes modelo)

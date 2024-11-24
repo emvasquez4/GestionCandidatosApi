@@ -10,7 +10,8 @@ namespace GestionCandidatosApi.Services
         Task<List<Entrevistas>> GetAll(Filtros filtro);
         Task<string> InsertEntrevistas(Entrevistas modelo);
         Task<int> UpdateEntrevistas(Entrevistas modelo);
-      //  Task<Entrevistas> GetEntrevista(Entrevistas entrevista);
+        Task<string> DeleteEntrevista(Entrevistas modelo);
+        //  Task<Entrevistas> GetEntrevista(Entrevistas entrevista);
 
     }
 
@@ -49,7 +50,22 @@ namespace GestionCandidatosApi.Services
             }
         }
         #endregion
+        #region DELETE
+        public async Task<string> DeleteEntrevista(Entrevistas modelo)
+        {
+            // Busca el entrevista en la base de datos
+            var entrevista = await dbContext.Entrevistas.Where(m => m.codigo_entrevista == modelo.codigo_entrevista).FirstOrDefaultAsync();
 
+            if (entrevista != null)
+            {
+                // Si se encuentra el entrevista, se elimina
+                dbContext.Entrevistas.Remove(entrevista);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
+        }
+        #endregion
         #region UPDATE 
         public async Task<int> UpdateEntrevistas(Entrevistas modelo)
         {
@@ -68,6 +84,7 @@ namespace GestionCandidatosApi.Services
                     // Guardar los cambios en la base de datos
                     dbContext.Entrevistas.Update(entrevista);
                     ejecuta = await dbContext.SaveChangesAsync();
+                    ejecuta = 0;
                 }
                 else
                 {

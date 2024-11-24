@@ -43,11 +43,11 @@ namespace GestionCandidatosApi.Controllers
 
                 if (result == "Exito")
                 {
-                    return Ok("Menu insertado correctamente.");
+                    return Ok("Rol insertado correctamente.");
                 }
                 else
                 {
-                    return BadRequest("Hubo un problema al insertar el usuario.");
+                    return BadRequest("Hubo un problema al insertar el Rol.");
                 }
             }
             catch (Exception ex)
@@ -56,27 +56,53 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
         [HttpPost]
-        [Route("updateRoles")]
-        public async Task<ActionResult<string>> updateRoles([FromBody] Roles modelo)
-        {
+        [Route("updateRol")]
+        public async Task<ActionResult<int>> UpdateRol(Roles modelo)
+        {           /**********ACTUALIZAR**********/
             try
             {
                 var result = await roles.UpdateRoles(modelo);
 
-                if (result == 0)
+                // Validamos el resultado y devolvemos el código HTTP correspondiente
+                switch (result)
                 {
-                    return Ok("Permiso insertado correctamente.");
-                }
-                else
-                {
-                    return BadRequest("Hubo un problema al insertar el permiso.");
+                    case 0:
+                        return Ok("Rol actualizado correctamente.");
+                    case 1:
+                        return NotFound("Rol no encontrado.");
+                    default:
+                        return StatusCode(500, "Error desconocido.");
                 }
             }
             catch (Exception ex)
             {
                 // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpPost]
+        [Route("DeleteRol")]
+        public async Task<ActionResult<string>> DeleteRol(Roles modelo)
+        {           /***********ELIMINAR************/
+            try
+            {
+                // Llama al servicio para eliminar el candidato
+                var result = await roles.DeleteRol(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Rol eliminado correctamente.");
+                }
+                else
+                {
+                    return NotFound("Rol no encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Captura la excepción y devuelve un BadRequest con el mensaje de error
                 return BadRequest(ex.Message);
             }
         }

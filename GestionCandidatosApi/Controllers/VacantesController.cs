@@ -90,5 +90,52 @@ namespace GestionCandidatosApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost]
+        [Route("addVacante")]
+        public async Task<ActionResult<string>> InsertVacante([FromBody] Vacantes modelo)
+        {           /***********AGREGAR************/
+            try
+            {
+                var result = await _vacantesService.InsertVacantes(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Vacante insertado correctamente.");
+                }
+                else
+                {
+                    return BadRequest("Hubo un problema al insertar el Vacante.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Capturamos la excepción y devolvemos un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("DeleteVacante")]
+        public async Task<ActionResult<string>> DeleteVacante(Vacantes modelo)
+        {           /***********ELIMINAR************/
+            try
+            {
+                // Llama al servicio para eliminar el candidato
+                var result = await _vacantesService.DeleteVacante(modelo);
+
+                if (result == "Exito")
+                {
+                    return Ok("Vacante eliminado correctamente.");
+                }
+                else
+                {
+                    return NotFound("Vacante no encontrado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Captura la excepción y devuelve un BadRequest con el mensaje de error
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

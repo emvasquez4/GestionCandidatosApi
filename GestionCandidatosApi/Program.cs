@@ -7,6 +7,7 @@ using GestionCandidatosApi.Services.Utilidades;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using GestionCandidatosApi.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -30,6 +31,8 @@ builder.Services.AddTransient<IPuestosService, PuestosService>();
 builder.Services.AddTransient<IMenusService, MenusService>();
 builder.Services.AddTransient<IRolesPermisosService, Roles_PermisosService>();
 builder.Services.AddTransient<IUsuariosRolesService, Usuarios_RolesService>();
+builder.Services.AddTransient<IEntrevistasService, EntrevistasService>();
+builder.Services.AddTransient<ICandidatosService, CandidatosService>();
 
 builder.Services.Configure<EncryptionSettings>(builder.Configuration.GetSection("EncryptionSettings"));
 builder.Services.AddScoped<Utilidades>();

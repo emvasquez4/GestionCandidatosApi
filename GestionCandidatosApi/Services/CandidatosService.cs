@@ -9,6 +9,7 @@ namespace GestionCandidatosApi.Services
         Task<List<Candidatos>> GetAll(Filtros filtro);
         Task<string> InsertCandidatos(Candidatos modelo);
         Task<int> UpdateCandidatos(Candidatos modelo);
+        Task<string> DeleteCandidato(Candidatos modelo);
         //  Task<Entrevistas> GetEntrevista(Entrevistas entrevista);
     }
     public class CandidatosService : ICandidatosService
@@ -39,7 +40,7 @@ namespace GestionCandidatosApi.Services
                 modelo.escolaridad = modelo.escolaridad ?? "no data";
                 modelo.genero = modelo.genero ?? "no data";
                 modelo.usuario_ingresa = modelo.usuario_ingresa?.ToUpper() ?? "no data"; // Convertir a mayúsculas si no es nulo
-                modelo.usuario_actualiza = modelo.usuario_actualiza?.ToUpper(); // No se asigna un valor por defecto
+                modelo.usuario_actualiza = modelo.usuario_actualiza?.ToUpper() ?? "no data"; // No se asigna un valor por defecto
 
 
                 await dbContext.Candidatos.AddAsync(modelo);
@@ -52,6 +53,23 @@ namespace GestionCandidatosApi.Services
                 //transaction.Rollback();
                 throw new Exception("Error al insertar candidatos");
             }
+        }
+        #endregion
+
+        #region DELETE
+        public async Task<string> DeleteCandidato(Candidatos modelo)
+        {
+            // Busca el candidato en la base de datos
+            var candidato = await dbContext.Candidatos.Where(m => m.codigo_candidato == modelo.codigo_candidato).FirstOrDefaultAsync();
+
+            if (candidato != null)
+            {
+                // Si se encuentra el candidato, se elimina
+                dbContext.Candidatos.Remove(candidato);
+                await dbContext.SaveChangesAsync(); // Guarda los cambios en la base de datos
+                return "Exito";
+            }
+            return "No encontrado"; // Si no se encuentra, devuelve "No encontrado"
         }
         #endregion
 
@@ -82,11 +100,13 @@ namespace GestionCandidatosApi.Services
                     // Guardar los cambios en la base de datos
                     dbContext.Candidatos.Update(candidato);
                     ejecuta = await dbContext.SaveChangesAsync();
+                    ejecuta = 0;
                 }
                 else
                 {
                     ejecuta = 1;
                 }
+
 
                 return ejecuta;
             }

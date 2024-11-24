@@ -6,7 +6,7 @@
         public string? nombre { get; set; }
 
         public string? apellido { get; set; }
-        public DateTime fecha_nacimiento { get; set; }
+        public DateTime? fecha_nacimiento { get; set; }
         public string? correo { get; set; }
         public double? expectativa_salarial { get; set; }
         public string? puesto_solicitado { get; set; }
