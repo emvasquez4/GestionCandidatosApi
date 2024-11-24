@@ -40,7 +40,7 @@ namespace GestionCandidatosApi.Services
                 modelo.escolaridad = modelo.escolaridad ?? "no data";
                 modelo.genero = modelo.genero ?? "no data";
                 modelo.usuario_ingresa = modelo.usuario_ingresa?.ToUpper() ?? "no data"; // Convertir a mayúsculas si no es nulo
-                modelo.usuario_actualiza = modelo.usuario_actualiza?.ToUpper(); // No se asigna un valor por defecto
+                modelo.usuario_actualiza = modelo.usuario_actualiza?.ToUpper() ?? "no data"; // No se asigna un valor por defecto
 
 
                 await dbContext.Candidatos.AddAsync(modelo);
@@ -100,11 +100,13 @@ namespace GestionCandidatosApi.Services
                     // Guardar los cambios en la base de datos
                     dbContext.Candidatos.Update(candidato);
                     ejecuta = await dbContext.SaveChangesAsync();
+                    ejecuta = 0;
                 }
                 else
                 {
                     ejecuta = 1;
                 }
+
 
                 return ejecuta;
             }
